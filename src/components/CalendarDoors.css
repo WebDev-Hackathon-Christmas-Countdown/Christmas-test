@@ -1,0 +1,43 @@
+.calendar_doors {
+  background-color: #f2e8cf;
+}
+
+.door-container {
+  margin: 0 3vw;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(5, 200px);
+}
+
+.door {
+  background-image: url("../assets/door.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 150px;
+  position: absolute;
+  z-index: 1;
+
+  transform-origin: left;
+  /*Speed of the Door animation*/
+  transition: all 0.5s ease-in-out;
+}
+
+.door:hover {
+  /*prespectiv creates the door open effect*/
+  transform: perspective(1200px) rotateY(-60deg);
+}
+
+.backdoor {
+  position: absolute;
+  width: 100px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.621);
+  color: #f2e8cf;
+  font-size: 20px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-right: 12px;
+}

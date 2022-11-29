@@ -1,0 +1,110 @@
+.calendar_windows {
+  width: 1520px;
+  height: 4070px;
+  background-image: url(../assets/christmas-windows.jpg);
+  background-size: contain;
+  display: grid;
+  grid-template-columns: 200px 200px 260px 200px 240px 200px;
+  grid-template-rows: 140px 295px 220px 295px 205px 295px 215px 295px 210px 295px 215px 295px 210px 295px 215px 295px;
+}
+
+.window {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 295px;
+  position: absolute;
+  z-index: 1;
+  transform: perspective(1200px) rotateY(-30deg);
+
+  transform-origin: left;
+  /*Speed of the Door animation*/
+  transition: all 0.35s ease-in-out;
+}
+
+.window_container:hover .window {
+  /*prespectiv creates the door open effect*/
+  transform: perspective(1200px) rotateY(-60deg);
+}
+
+.back_window {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+}
+
+.number_day_container {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 48px;
+  padding-left: 82px;
+}
+
+.number_day {
+  font-weight: 1000;
+  font-size: 30px;
+  color: #f2e8cf;
+  background-color: #bc4749;
+  border: 3px solid;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  filter: drop-shadow(0 0 15px #ab9c13);
+}
+
+.snowflake {
+  --size: 1vw;
+  width: var(--size);
+  height: var(--size);
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -5vh;
+  z-index: 5;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translate3d(var(--left-ini), 0, 0);
+  }
+  100% {
+    transform: translate3d(var(--left-end), 4000px, 0);
+  }
+}
+
+@for $i from 1 through 50 {
+  .snowflake:nth-child(#{$i}) {
+    --size: #{random(7) * 0.2}vw;
+    --left-ini: #{random(20) - 10}vw;
+    --left-end: #{random(20) - 10}vw;
+    left: #{random(100)}vw;
+    animation: snowfall #{50 + random(10)}s linear infinite;
+    animation-delay: -#{random(100)}s;
+  }
+}
+
+/* added small blur every 6 snowflakes*/
+.snowflake:nth-child(6n) {
+  filter: blur(1px);
+}
+
+.button-back {
+  background-color: rgb(106, 153, 78);
+  color: rgb(242, 232, 207);
+  border: 2px solid rgb(56, 102, 65);
+  z-index: 4;
+  font-size: 20px;
+  padding: 10px 10px;
+  border-radius: 50px;
+  margin: 15px 15px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 4;
+  text-decoration: none;
+}
+
+.button-back:hover {
+  background-color: gray;
+  color: black;
+}
