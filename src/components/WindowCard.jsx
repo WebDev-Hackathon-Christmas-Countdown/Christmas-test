@@ -3,15 +3,16 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import DailyCardPopUp from "./DailyCardPopUp";
-import BackWindowImg from "../assets/sample-popup.png"
+import backWindowImg from "../assets/sample-popup.png";
+import windowList from "../assets/windows-list-path";
 
 function WindowCard(props) {
   const { window, grid } = props;
   const styleWindow = {
-    backgroundImage: `url(/src/assets/window${window.id}.png)`,
+    backgroundImage: `url(${windowList[window.id]})`,
   };
   const styleBackWindow = {
-    backgroundImage: "url(" + { BackWindowImg } + ")",
+    backgroundImage: `url(${backWindowImg})`,
   };
   const [isOpen, setIsOpen] = useState(false);
 
