@@ -24,6 +24,7 @@ import window23 from "./window23.png";
 import window24 from "./window24.png";
 
 export default [
+  0,
   window1,
   window2,
   window3,
